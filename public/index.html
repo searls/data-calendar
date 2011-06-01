@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>data calendar</title>
+		<link rel="stylesheet" type="text/css" href="src/vendor/fullcalendar/fullcalendar.css">
+		<link rel="stylesheet" type="text/css" href="src/vendor/jquery-ui/css/jquery-ui-1.8.13.custom.css">
+		<style type="text/css">
+			#my-cal {
+				width: 800px;
+				margin: 0 auto;
+			}
+		</style>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript" src="src/vendor/jquery-ui/jquery-ui-1.8.13.custom.min.js"></script>
+		<script type="text/javascript" src="src/vendor/fullcalendar/fullcalendar.js"></script>
+		
+		<script type="text/javascript" src="src/data-calendar.js"></script>
+	</head>
+	<body>
+		<div id="my-cal"></div>
+		
+		<script type="text/javascript">
+			jQuery(function($) {
+				DataCalendar({
+					containerId: 'my-cal'
+				});
+			});
+		</script>
+	</body>
+</html>
