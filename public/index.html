@@ -12,6 +12,8 @@
 		</style>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 		<script type="text/javascript" src="src/vendor/jquery-ui/jquery-ui-1.8.13.custom.min.js"></script>
+		<script type="text/javascript" src="src/vendor/underscore-min.js"></script>
+		<script type="text/javascript" src="src/vendor/date.js"></script>	
 		<script type="text/javascript" src="src/vendor/fullcalendar/fullcalendar.js"></script>
 		
 		<script type="text/javascript" src="src/data-calendar.js"></script>
@@ -22,7 +24,20 @@
 		<script type="text/javascript">
 			jQuery(function($) {
 				DataCalendar({
-					containerId: 'my-cal'
+					containerId: 'my-cal',
+					schema: { title:"title", start:"arrivalDate" },
+					data: [	{"arrivalDate":"2010-12-30 23:59:00.0",title: "Item A"},
+						{"arrivalDate":"2011-01-03 23:59:00.0",title: "Item B"},
+						{"arrivalDate":"2011-01-03 23:59:00.0",title: "Item C"},
+						{"arrivalDate":"2011-06-15 23:59:00.0",title: "Item D"},
+						{"arrivalDate":"2011-06-14 23:59:00.0",title: "Item E"},
+						{"arrivalDate":"2011-06-14 23:59:00.0",title: "Item F"},
+						{"arrivalDate":"2011-06-14 23:59:00.0",title: "Item G"},
+						{"arrivalDate":"2011-06-21 23:59:00.0",title: "Item H"},
+						{"arrivalDate":"2011-06-04 23:59:00.0",title: "Item I"}],
+					dateFormatter: function(dateString) {
+						return dateString.substring(0,dateString.length - 2);
+					}
 				});
 			});
 		</script>
