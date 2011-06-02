@@ -5,9 +5,21 @@
 		<link rel="stylesheet" type="text/css" href="src/vendor/fullcalendar/fullcalendar.css">
 		<link rel="stylesheet" type="text/css" href="src/vendor/jquery-ui/css/jquery-ui-1.8.13.custom.css">
 		<style type="text/css">
-			#my-cal {
+			.wrap {
 				width: 800px;
 				margin: 0 auto;
+			}
+			
+			.info {
+				padding: 10px;
+				margin: 0px 0px 20px 0px;
+			}
+			
+			.source {
+				font-size: 1.15em;
+				background-color: #000;
+				color: #AFA;
+				padding: 10px;
 			}
 		</style>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
@@ -19,27 +31,38 @@
 		<script type="text/javascript" src="src/data-calendar.js"></script>
 	</head>
 	<body>
-		<div id="my-cal"></div>
-		
-		<script type="text/javascript">
-			jQuery(function($) {
-				DataCalendar({
-					containerId: 'my-cal',
-					schema: { title:"title", start:"arrivalDate" },
-					data: [	{"arrivalDate":"2010-12-30 23:59:00.0",title: "Item A"},
-						{"arrivalDate":"2011-01-03 23:59:00.0",title: "Item B"},
-						{"arrivalDate":"2011-01-03 23:59:00.0",title: "Item C"},
-						{"arrivalDate":"2011-06-15 23:59:00.0",title: "Item D"},
-						{"arrivalDate":"2011-06-14 23:59:00.0",title: "Item E"},
-						{"arrivalDate":"2011-06-14 23:59:00.0",title: "Item F"},
-						{"arrivalDate":"2011-06-14 23:59:00.0",title: "Item G"},
-						{"arrivalDate":"2011-06-21 23:59:00.0",title: "Item H"},
-						{"arrivalDate":"2011-06-04 23:59:00.0",title: "Item I"}],
-					dateFormatter: function(dateString) {
-						return dateString.substring(0,dateString.length - 2);
-					}
-				});
-			});
+		<div class="wrap">
+			<div class="info">
+				<h1>DataCalendar</h1>
+				<p>A toy facade for passing arbitrary arrays of objects to <a href="https://github.com/arshaw/fullcalendar">FullCalendar</a> (<a href="spec.html">Specs here</a>)</p>			
+			</div>
+			<div id="my-cal"></div>
+			<div>
+				<h2>Source</h2>
+				<pre class="source"></pre>		
+			</div>
+		</div>
+		<script type="text/javascript" id="sauce">
+jQuery(function($) {
+	DataCalendar({
+		containerId: 'my-cal',
+		schema: { title:"title", start:"arrivalDate" },
+		data: [	{"arrivalDate":"2010-12-30 23:59:00.0",title: "Item A"},
+			{"arrivalDate":"2011-01-03 23:59:00.0",title: "Item B"},
+			{"arrivalDate":"2011-01-03 23:59:00.0",title: "Item C"},
+			{"arrivalDate":"2011-06-15 23:59:00.0",title: "Item D"},
+			{"arrivalDate":"2011-06-14 23:59:00.0",title: "Item E"},
+			{"arrivalDate":"2011-06-14 23:59:00.0",title: "Item F"},
+			{"arrivalDate":"2011-06-14 23:59:00.0",title: "Item G"},
+			{"arrivalDate":"2011-06-21 23:59:00.0",title: "Item H"},
+			{"arrivalDate":"2011-06-04 23:59:00.0",title: "Item I"}],
+		dateFormatter: function(dateString) {
+			return dateString.substring(0,dateString.length - 2);
+		}
+	});
+
+	$('.source').html($.trim($('#sauce').html()));
+});
 		</script>
 	</body>
 </html>
